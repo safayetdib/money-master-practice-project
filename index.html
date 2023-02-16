@@ -4,11 +4,11 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- UBUNTU FONT -->
+		<!-- WORK SANS FONT -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;800;900&display=swap"
 			rel="stylesheet" />
 		<!-- TAILWIND CDN -->
 		<script src="https://cdn.tailwindcss.com"></script>
@@ -18,7 +18,7 @@
 				theme: {
 					extend: {
 						fontFamily: {
-							ubuntu: ['Ubuntu', 'sans-serif'],
+							'work-sans': ['Work Sans', 'sans-serif'],
 						},
 					},
 				},
@@ -27,21 +27,111 @@
 		<title>Money Master</title>
 	</head>
 	<body class="h-screen">
-		<main class="p-6 w-full max-w-4xl mx-auto font-ubuntu text-gray-700">
-			<header class="w-full h-full">
-				<h1 class="text-3xl font-bold w-full mx-auto text-center">
+		<main
+			class="font-work-sans mx-auto h-full w-full max-w-4xl p-10 text-gray-700">
+			<header class="w-full">
+				<h1 class="mx-auto w-full text-center text-3xl font-bold">
 					Money Master
 				</h1>
 			</header>
-			<section class="flex justify-center align-center mt-4 h-full shadow">
-				<div class="w-1/2 h-full shadow">
+
+			<section
+				id="container"
+				class="mt-4 flex h-fit items-center justify-center bg-gray-300 shadow">
+				<div class="h-full w-1/2 shadow">
 					<img
 						src="assets/main.jpg"
 						alt="banner"
-						class="w-full h-full object-cover" />
+						class="h-full w-full object-cover" />
 				</div>
-				<div class="bg-gray-300 w-1/2"></div>
+
+				<div
+					id="calc-container"
+					class="h-full w-1/2 py-4 px-6 text-center font-semibold text-gray-900">
+					<div class="space-y-3">
+						<h2 class="text-lg">Income</h2>
+						<!-- income -->
+						<div class="flex items-center justify-end">
+							<label for="income"> Income: </label>
+							<input
+								type="number"
+								id="income"
+								class="ml-3 mr-5 w-64 bg-gray-100 p-2" />
+						</div>
+					</div>
+
+					<div class="mt-5 space-y-3">
+						<h2 class="text-lg">Expenses</h2>
+						<!-- food -->
+						<div class="flex items-center justify-end">
+							<label for="food"> Food: </label>
+							<input
+								type="number"
+								id="food"
+								class="ml-3 mr-5 w-64 bg-gray-100 p-2" />
+						</div>
+						<!-- rent -->
+						<div class="flex items-center justify-end">
+							<label for="rent"> Rent: </label>
+							<input
+								type="number"
+								id="rent"
+								class="ml-3 mr-5 w-64 bg-gray-100 p-2" />
+						</div>
+						<!-- clothes -->
+						<div class="flex items-center justify-end">
+							<label for="clothes"> Clothes: </label>
+							<input
+								type="number"
+								id="clothes"
+								class="ml-3 mr-5 w-64 bg-gray-100 p-2" />
+						</div>
+
+						<!-- calculate -->
+						<button
+							id="btn-calculate"
+							class="bg-sky-400 px-5 py-3 text-gray-100 shadow-md transition-all hover:bg-sky-500 active:bg-sky-600">
+							Calculate
+						</button>
+
+						<!-- expense and balance -->
+						<div class="space-y-2">
+							<h2 class="rounded bg-gray-100 text-lg shadow">
+								Total Expenses: <span id="total-expenses">0</span>
+							</h2>
+							<h2 class="rounded bg-gray-100 text-lg shadow">
+								Balance: <span id="balance">0</span>
+							</h2>
+						</div>
+
+						<!-- save -->
+						<div class="flex items-center justify-center space-x-3">
+							<label for="save"> Save: </label>
+							<input type="number" id="save" class="w-20 bg-gray-100 p-2" />
+							<p>%</p>
+							<button
+								id="btn-save"
+								class="bg-sky-400 px-6 py-2 text-gray-100 shadow-md transition-all hover:bg-sky-500 active:bg-sky-600">
+								Save
+							</button>
+						</div>
+
+						<!-- savings and balance -->
+						<div class="space-y-2">
+							<h2 class="rounded bg-gray-100 text-lg shadow">
+								Saving Amount: <span id="saving-amount">0</span>
+							</h2>
+							<h2 class="rounded bg-gray-100 text-lg shadow">
+								Remaining Balance: <span id="remaining-balance">0</span>
+							</h2>
+						</div>
+					</div>
+				</div>
 			</section>
 		</main>
+
+		<script src="scripts/utilities.js"></script>
+		<script src="scripts/expenses.js"></script>
+		<script src="scripts/savings.js"></script>
 	</body>
 </html>
