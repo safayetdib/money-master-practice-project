@@ -26,6 +26,4 @@ function btnCalculateHandler() {
 	}
 }
 
-btnCalculateHandler();
-
 btnCalculate.addEventListener('click', (e) => btnCalculateHandler(e));

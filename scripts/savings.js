@@ -14,11 +14,15 @@ function btnSaveHandler() {
 	if (newSavingAmount <= balanceBeforeSave) {
 		savingAmount.innerText = newSavingAmount;
 		remainingBalance.innerText = newRemainingBalance;
+	} else if (newSavingAmount > balanceBeforeSave) {
+		return alert(
+			'Your are trying to save more than your balance! Please calculate expenses again or input valid savings rate against your income.'
+		);
 	} else {
-		return alert('Your are trying to save more than your balance!');
+		return alert('Please input valid savings rate against your income!');
 	}
 }
 
-btnSaveHandler();
+// btnSaveHandler();
 
 btnSave.addEventListener('click', (e) => btnSaveHandler(e));
