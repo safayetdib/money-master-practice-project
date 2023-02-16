@@ -38,7 +38,7 @@
 			<section
 				id="container"
 				class="mt-4 flex h-fit items-center justify-center bg-gray-300 shadow">
-				<div class="h-full w-1/2 shadow">
+				<div class="hidden h-full shadow sm:w-1/2 md:block">
 					<img
 						src="assets/main.jpg"
 						alt="banner"
@@ -47,44 +47,51 @@
 
 				<div
 					id="calc-container"
-					class="h-full w-1/2 py-4 px-6 text-center font-semibold text-gray-900">
+					class="h-full w-full py-4 px-6 text-center font-semibold text-gray-900 sm:w-1/2">
+					<!-- income -->
 					<div class="space-y-3">
-						<h2 class="text-lg">Income</h2>
-						<!-- income -->
+						<h2 class="text-lg text-sm">Income</h2>
 						<div class="flex items-center justify-end">
-							<label for="income"> Income: </label>
+							<label for="income" class="font-medium"> Income: </label>
 							<input
 								type="number"
 								id="income"
-								class="ml-3 mr-5 w-64 bg-gray-100 p-2" />
+								class="ml-3 w-4/5 bg-gray-100 p-2"
+								value="5000" />
 						</div>
 					</div>
 
-					<div class="mt-5 space-y-3">
+					<!-- expenses -->
+					<div class="mt-4 space-y-3">
 						<h2 class="text-lg">Expenses</h2>
 						<!-- food -->
 						<div class="flex items-center justify-end">
-							<label for="food"> Food: </label>
+							<label for="food" class="text-sm font-medium"> Food: </label>
 							<input
 								type="number"
 								id="food"
-								class="ml-3 mr-5 w-64 bg-gray-100 p-2" />
+								class="ml-3 w-4/5 bg-gray-100 p-2"
+								value="2000" />
 						</div>
 						<!-- rent -->
 						<div class="flex items-center justify-end">
-							<label for="rent"> Rent: </label>
+							<label for="rent" class="text-sm font-medium"> Rent: </label>
 							<input
 								type="number"
 								id="rent"
-								class="ml-3 mr-5 w-64 bg-gray-100 p-2" />
+								class="ml-3 w-4/5 bg-gray-100 p-2"
+								value="1500" />
 						</div>
 						<!-- clothes -->
 						<div class="flex items-center justify-end">
-							<label for="clothes"> Clothes: </label>
+							<label for="clothes" class="text-sm font-medium">
+								Clothes:
+							</label>
 							<input
 								type="number"
 								id="clothes"
-								class="ml-3 mr-5 w-64 bg-gray-100 p-2" />
+								class="ml-3 w-4/5 bg-gray-100 p-2"
+								value="500" />
 						</div>
 
 						<!-- calculate -->
@@ -103,11 +110,19 @@
 								Balance: <span id="balance">0</span>
 							</h2>
 						</div>
+					</div>
 
+					<!-- savings -->
+					<div class="mt-5 space-y-3">
 						<!-- save -->
-						<div class="flex items-center justify-center space-x-3">
-							<label for="save"> Save: </label>
-							<input type="number" id="save" class="w-20 bg-gray-100 p-2" />
+						<div
+							class="flex flex-col items-center justify-center gap-2 sm:flex-row">
+							<label for="save" class="text-sm font-medium"> Save: </label>
+							<input
+								type="number"
+								id="save"
+								class="w-20 bg-gray-100 p-2 text-center"
+								value="10" />
 							<p>%</p>
 							<button
 								id="btn-save"
@@ -115,7 +130,6 @@
 								Save
 							</button>
 						</div>
-
 						<!-- savings and balance -->
 						<div class="space-y-2">
 							<h2 class="rounded bg-gray-100 text-lg shadow">
