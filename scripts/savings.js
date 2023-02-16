@@ -3,17 +3,22 @@ const btnSave = getElement('btn-save');
 const savingAmount = getElement('saving-amount');
 const remainingBalance = getElement('remaining-balance');
 
-const savePercent = getIntFromString(getElement('save').value);
-const balanceBeforeSave = getIntFromString(balance.innerText);
-
 function btnSaveHandler() {
+	const incomeAmount = getIntFromString(income.value);
+	const balanceBeforeSave = getIntFromString(balance.innerText);
+	const savePercent = getIntFromString(getElement('save').value);
+
 	const newSavingAmount = (incomeAmount * savePercent) / 100;
 	const newRemainingBalance = balanceBeforeSave - newSavingAmount;
 
-	savingAmount.innerText = newSavingAmount;
-	remainingBalance.innerText = newRemainingBalance;
+	if (newSavingAmount <= balanceBeforeSave) {
+		savingAmount.innerText = newSavingAmount;
+		remainingBalance.innerText = newRemainingBalance;
+	} else {
+		return alert('Your are trying to save more than your balance!');
+	}
 }
 
-btnSave.addEventListener('click', (e) => btnSaveHandler(e));
-
 btnSaveHandler();
+
+btnSave.addEventListener('click', (e) => btnSaveHandler(e));
